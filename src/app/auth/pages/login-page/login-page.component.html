@@ -1,0 +1,39 @@
+<div class="absolute top-0 right-0 w-25rem">
+    <p-messages [(value)]="alert" [enableService]="false" [hideTransitionOptions]="'300ms'" />
+</div>
+
+<div class="surface-card border-round-lg px-5 py-3 w-22rem" >
+    <form class="login100-form" [formGroup]="myForm" (ngSubmit)="login()" autocomplete="off">
+
+        <div class="text-center mt-4">
+            <img src="assets/images/logo.png" alt="Image" height="60">
+            <div class="text-1900 text-xl font-medium mb-5">Grupo : Gabrielita</div>
+        </div>
+
+        <div class="flex flex-column">
+            <p-iconField iconPosition="left">
+                <p-inputIcon styleClass="pi pi-envelope" />
+                <input pInputText type="text" placeholder="Correo" class="w-full mb-3" formControlName="email" />
+            </p-iconField>
+
+            <p-iconField iconPosition="left">
+                <p-inputIcon styleClass="pi pi-lock" />
+                <input pInputText type="password" placeholder="Contraseña" class="w-full mb-3"
+                    formControlName="password" />
+            </p-iconField>
+
+            <p-button label="Ingresar" [rounded]="true" [style]="{'width': '100%'}" [disabled]="myForm.invalid"
+                class="mt-4" (click)="login()"></p-button>
+        </div>
+
+        <div class="flex flex-column text-right mt-6">
+            <a class="font-medium no-underline text-blue-500 cursor-pointer" routerLink="/auth/register">Crear
+                cuenta
+            </a>
+            <a class="font-medium no-underline text-blue-500 cursor-pointer" routerLink="/auth/recovery">Olvidaste
+                tu
+                contraseña?</a>
+        </div>
+
+    </form>
+</div>
